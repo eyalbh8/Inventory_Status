@@ -41,8 +41,8 @@ def Print_Executed():
 
 
 def Email_massage(Medicine_allert):
-    EMAIL_ADRESS = "Eyalbh8@gmail.com"
-    EMAIL_PASSWORD = "hanchibanchi"
+    EMAIL_ADRESS = "ttinbareyalttgmail.com"
+    EMAIL_PASSWORD = "takornak"
 
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.ehlo()
