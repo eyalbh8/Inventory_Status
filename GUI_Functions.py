@@ -41,7 +41,7 @@ def Print_Executed():
 
 
 def Email_massage(Medicine_allert):
-    EMAIL_ADRESS = "ttinbareyalttgmail.com"
+    EMAIL_ADRESS = "ttinbareyaltt@gmail.com"
     EMAIL_PASSWORD = "takornak"
 
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
