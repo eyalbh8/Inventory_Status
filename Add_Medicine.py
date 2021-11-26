@@ -4,10 +4,15 @@ from Excel_writing import Save_Changes, Save_New_Medicine, Max_Row
 from Excel_reading import Extracting_Medicine_Name,Read_File
 from GUI_Functions import Print_Executed
 
+List_of_Names = Extracting_Medicine_Name(Read_File("Medicine_inventory.xlsx"))
 
 def Updating_Data_Base():
-    List_of_names = Extracting_Medicine_Name(Read_File("Medicine_inventory.xlsx"))
-    Medicine_index =  Check_Medicine_index(Medicine_name.get(), List_of_names)
+    if value_inside.get() == "רשימת תרופות":
+        Medicine_index =  Check_Medicine_index(Medicine_name.get(), List_of_Names)
+    
+    else:
+        Medicine_index = Check_Medicine_index(value_inside.get(), List_of_Names)
+    
 
     if Medicine_index is not False:
         Save_Changes(Medicine_index, Expiration_date.get(), Quantity.get(), Minimum_inventory.get())
@@ -26,6 +31,12 @@ Medicine_name_label = tk.Label(window, text = "שם התרופה", font=('calibr
 Medicine_name_label.grid(row=0,column=4)
 Medicine_name_entry = tk.Entry(window,textvariable = Medicine_name, font=('calibre',14,'normal'))
 Medicine_name_entry.grid(row=1,column=4)
+
+value_inside = tk.StringVar(window)
+value_inside.set("רשימת תרופות")
+
+option_menu = tk.OptionMenu(window, value_inside, *List_of_Names)
+option_menu.grid(row=2,column=4)
 
 Quantity = tk.IntVar()
 Quantity_label = tk.Label(window, text = "כמות", font=('calibre',10, 'bold'))
