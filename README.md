@@ -33,6 +33,13 @@ Using pandas for extracting data from the data base
 
 Writing and reading from the Excel file
 
+## smtplib
+
+Sending email from gmail acoount to update the seller about a product that has reached the minimum quantity or expiration date
+
+![image](https://user-images.githubusercontent.com/87011531/143559380-b2d80aee-ac17-489b-85cd-bf033f1fad46.png)
+
+
 
 
 
