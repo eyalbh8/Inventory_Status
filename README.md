@@ -27,6 +27,12 @@ After every change the seller will apply a small window will pop for visual conf
 
 ## Pandas library
 
-Using pandas for 
+Using pandas for extracting data from the data base
+
+## openpyxl library
+
+Writing and reading from the Excel file
+
+
 
 
