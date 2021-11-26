@@ -1,7 +1,8 @@
 import tkinter as tk
 from Excel_reading import Extracting_Medicine_Name, Read_File
 from GUI_Functions import *
-from Excel_anlyzing_data import Check_Medicine_index
+from Excel_anlyzing_data import Check_Medicine_index, Check_Minimum_Inventory
+from openpyxl import load_workbook
 
 
 def Apply():
