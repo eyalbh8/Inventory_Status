@@ -14,9 +14,9 @@ Declaring sale by choosing the product from the combo box and quantity.
 
 ### Updating/Adding product
 
-In each box you'll write the necessary information. If the product is allready exists in the data base the date, quantity and minimum quantity will change accoridingly to the new infromation that just received, else the program will create a new product in the data base
+In each box you'll write the necessary information. If the product is allready exists in the data base you can choose it from the combo box, else the program will create a new product in the data base accordingly to the just received medicine name, date, quantity and minimum quantity data 
 
-![image](https://user-images.githubusercontent.com/87011531/143556961-b61a2499-b673-480c-abe8-d79673adab06.png)
+![image](https://user-images.githubusercontent.com/87011531/143562608-cdbeae55-3ba2-484a-9846-c103df36af5e.png)
 
 
 ### Updating confirmation
