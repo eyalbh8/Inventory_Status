@@ -29,7 +29,7 @@ def Extracting_Quantity(df):
     Quantity = df[ColumnsHeadlines[2]]
     quantity = pd.DataFrame(Quantity)
 
-    List_of_Quantity = [int(row[1][0]) for row in quantity.iterrows()]
+    List_of_Quantity = [row[1][0] for row in quantity.iterrows()]
 
     return List_of_Quantity
 
@@ -39,6 +39,6 @@ def Extracting_Minimum_Iventory(df):
     Minimum_Iventory = df[ColumnsHeadlines[3]]
     Inventory = pd.DataFrame(Minimum_Iventory)
 
-    List_of_Inventory = [int(row[1][0]) for row in Inventory.iterrows()]
+    List_of_Inventory = [row[1][0] for row in Inventory.iterrows()]
 
     return List_of_Inventory
