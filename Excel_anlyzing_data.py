@@ -1,4 +1,7 @@
 from datetime import date
+from typing import Type
+
+from numpy import nan
 
 def Check_Medicine_index(name, List_of_names=[]):
     if str(name) in List_of_names:
@@ -10,11 +13,16 @@ def Check_Medicine_index(name, List_of_names=[]):
 
 
 def Check_Minimum_Inventory(Quantity, Minimum):
-    if int(Quantity) <= int(Minimum):
-        return False
+    print(Quantity, Minimum)
+    try:
+        if int(Quantity) <= int(Minimum):
+            return False
 
-    else:
-        return True
+        else:
+            return True
+    
+    except:
+        return False
 
 def Today_Date():
     today = str(date.today())

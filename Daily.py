@@ -28,6 +28,6 @@ def Daily_Check():
             Reached_Minimum.append(Medicine_names[i])
 
     Print_Expired(Expired)
-    print(Reached_Minimum)
+    Print_min(Reached_Minimum)
 
 Daily_Check()

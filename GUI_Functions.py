@@ -5,15 +5,18 @@ def Print_min(Medicine_name=[]):
     Medicine_sentence = ""
     for i in range(len(Medicine_name)):
         Medicine_sentence = Medicine_sentence + ", " + Medicine_name[i]
+    
+    if len(Medicine_name) == 0:
+        Medicine_name = "אין תרופות שהגיעו למינימום"
+
+    else:
+        Medicine_name = "יש תרופות שהגיעו למינימום נא לבדוק במייל"
 
     window = tk.Tk()
     window.title("לשים לב")
 
-    Result_label = tk.Label(window, text = "הגיע למינימום", font=("calibre",18, "bold"))
-    Result_label.grid(row=0,column=1)
-
     label = tk.Label(window, text = Medicine_name, font=("calibre",18, "bold"))
-    label.grid(row=2,column=0)
+    label.grid(row=1,column=0)
         
     window.mainloop()
     Medicine_allert = f"Reached the minimum: {Medicine_sentence}"
@@ -22,16 +25,19 @@ def Print_min(Medicine_name=[]):
 def Print_Expired(Medicine_name=[]):
     Medicine_sentence = ""
     for i in range(len(Medicine_name)):
-        Medicine_sentence = Medicine_sentence + ", " + Medicine_name[i]
+        Medicine_sentence = Medicine_sentence + ",\n" + Medicine_name[i]
+
+    if len(Medicine_name) == 0:
+        Medicine_name = "אין תרופות פגות תוקף"
+
+    else:
+        Medicine_name = "יש תרופות פגות תוקף נא לבדוק במייל"
 
     window = tk.Tk()
     window.title("לשים לב")
 
-    Result_label = tk.Label(window, text = "פג תוקף", font=("calibre",18, "bold"))
-    Result_label.grid(row=0,column=1)
-
     label = tk.Label(window, text = Medicine_name, font=("calibre",18, "bold"))
-    label.grid(row=2,column=0)
+    label.grid(row=1,column=0)
 
     window.mainloop()
     
