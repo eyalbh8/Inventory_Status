@@ -8,6 +8,8 @@ def Daily_Check():
     Dates = Extracting_Expiration_Date(file)
     Quantity = Extracting_Quantity(file)
     Minimum_inventory = Extracting_Minimum_Iventory(file)
+    Reached_Minimum = []
+    Expired = []
 
     for date in Dates:
         date_list = date.split("/")
@@ -16,13 +18,16 @@ def Daily_Check():
 
         else:
             name = Medicine_names[Dates.index(date)]
-            Print_Expired(name)
+            Expired.append(name)
 
     for i in range(len(Quantity)):
         if Check_Minimum_Inventory(Quantity[i], Minimum_inventory[i]):
             continue
 
         else:
-            Print_min(Medicine_names[i])
+            Reached_Minimum.append(Medicine_names[i])
+
+    Print_Expired(Expired)
+    print(Reached_Minimum)
 
 Daily_Check()
