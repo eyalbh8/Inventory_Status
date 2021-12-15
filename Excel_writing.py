@@ -11,6 +11,7 @@ def Save_Changes(Medicine_index, Date, Quantity, MIN_Quantity):
 def Max_Row():
     Excel_Workbook = load_workbook("Medicine_inventory.xlsx")
     sheet = Excel_Workbook.active
+    print(sheet.max_row)
     return sheet.max_row
 
 
