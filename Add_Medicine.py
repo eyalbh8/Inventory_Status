@@ -1,62 +1,63 @@
 import tkinter as tk
-from Excel_anlyzing_data import Check_Medicine_index
-from Excel_writing import Save_Changes, Save_New_Medicine, Max_Row
-from Excel_reading import Extracting_Medicine_Name,Read_File
-from GUI_Functions import Print_Executed
+from excel_anlyzing_data import check_medicine_index
+from excel_writing import save_changes, save_new_medicine, max_row
+from excel_reading import extracting_medicine_name, read_file
+from GUI_functions import print_executed
 
-List_of_Names = Extracting_Medicine_Name(Read_File("Medicine_inventory.xlsx"))
+list_of_names = extracting_medicine_name(read_file("medicine_inventory.xlsx"))
 
-def Updating_Data_Base():
+
+def updating_medicine_data_base():
     if value_inside.get() == "רשימת תרופות":
-        Medicine_index =  Check_Medicine_index(Medicine_name.get(), List_of_Names)
-    
-    else:
-        Medicine_index = Check_Medicine_index(value_inside.get(), List_of_Names)
-    
+        medicine_index = check_medicine_index(medicine_name.get(), list_of_names)
 
-    if Medicine_index is not False:
-        Save_Changes(Medicine_index, Expiration_date.get(), Quantity.get(), Minimum_inventory.get())
-        Print_Executed()
     else:
-        New_Medicine_Row_num = Max_Row() + 1
-        Save_New_Medicine(New_Medicine_Row_num, Medicine_name.get(), 
-                          Expiration_date.get(), Quantity.get(), Minimum_inventory.get())
-        Print_Executed()
+        medicine_index = check_medicine_index(value_inside.get(), list_of_names)
+
+    if medicine_index is not False:
+        save_changes(medicine_index, expiration_date.get(), quantity.get(), minimum_inventory.get())
+        print_executed()
+    else:
+        new_medicine_row_num = max_row() + 1
+        save_new_medicine(new_medicine_row_num, medicine_name.get(),
+                          expiration_date.get(), quantity.get(), minimum_inventory.get())
+        print_executed()
+
 
 window = tk.Tk()
 window.title("עדכון תרופות")
 
-Medicine_name = tk.StringVar(window)
-Medicine_name_label = tk.Label(window, text = "שם התרופה", font=('calibre',14, 'bold'))
-Medicine_name_label.grid(row=0,column=4)
-Medicine_name_entry = tk.Entry(window,textvariable = Medicine_name, font=('calibre',14,'normal'))
-Medicine_name_entry.grid(row=1,column=4)
+medicine_name = tk.StringVar(window)
+medicine_name_label = tk.Label(window, text="שם התרופה", font=('calibre', 14, 'bold'))
+medicine_name_label.grid(row=0, column=4)
+medicine_name_entry = tk.Entry(window, textvariable=medicine_name, font=('calibre', 14, 'normal'))
+medicine_name_entry.grid(row=1, column=4)
 
 value_inside = tk.StringVar(window)
 value_inside.set("רשימת תרופות")
 
-option_menu = tk.OptionMenu(window, value_inside, *List_of_Names)
-option_menu.grid(row=2,column=4)
+option_menu = tk.OptionMenu(window, value_inside, *list_of_names)
+option_menu.grid(row=2, column=4)
 
-Quantity = tk.StringVar(window)
-Quantity_label = tk.Label(window, text = "כמות", font=('calibre',10, 'bold'))
-Quantity_label.grid(row=0,column=3)
-Quantity_entry = tk.Entry(window,textvariable = Quantity, font=('calibre',10,'normal'))
-Quantity_entry.grid(row=1,column=3)
+quantity = tk.StringVar(window)
+quantity_label = tk.Label(window, text="כמות", font=('calibre', 10, 'bold'))
+quantity_label.grid(row=0, column=3)
+quantity_entry = tk.Entry(window, textvariable=quantity, font=('calibre', 10, 'normal'))
+quantity_entry.grid(row=1, column=3)
 
-Minimum_inventory = tk.StringVar(window)
-Minimum_inventory_label = tk.Label(window, text = "כמות מינימום", font=('calibre',10, 'bold'))
-Minimum_inventory_label.grid(row=0,column=2)
-Minimum_inventory_entry = tk.Entry(window,textvariable = Minimum_inventory, font=('calibre',10,'normal'))
-Minimum_inventory_entry.grid(row=1,column=2)
+minimum_inventory = tk.StringVar(window)
+minimum_inventory_label = tk.Label(window, text="כמות מינימום", font=('calibre', 10, 'bold'))
+minimum_inventory_label.grid(row=0, column=2)
+minimum_inventory_entry = tk.Entry(window, textvariable=minimum_inventory, font=('calibre', 10, 'normal'))
+minimum_inventory_entry.grid(row=1, column=2)
 
-Expiration_date = tk.StringVar(window)
-Expiration_date_label = tk.Label(window, text = "תאריך תפוגה", font=('calibre',10, 'bold'))
-Expiration_date_label.grid(row=0,column=1)
-Expiration_date_entry = tk.Entry(window,textvariable = Expiration_date, font=('calibre',10,'normal'))
-Expiration_date_entry.grid(row=1,column=1)
+expiration_date = tk.StringVar(window)
+expiration_date_label = tk.Label(window, text="תאריך תפוגה", font=('calibre', 10, 'bold'))
+expiration_date_label.grid(row=0, column=1)
+expiration_date_entry = tk.Entry(window, textvariable=expiration_date, font=('calibre', 10, 'normal'))
+expiration_date_entry.grid(row=1, column=1)
 
-end = tk.Button(window,bg="black", fg="white",text="סיים",command=Updating_Data_Base)
-end.grid(row=2,column=2)
+end = tk.Button(window, bg="black", fg="white", text="סיים", command=updating_medicine_data_base)
+end.grid(row=2, column=2)
 
 window.mainloop()
