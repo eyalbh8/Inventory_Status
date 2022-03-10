@@ -1,6 +1,6 @@
 import tkinter as tk
 from excel_anlyzing_data import check_medicine_index
-from excel_writing import save_changes, save_new_medicine, max_row
+from excel_writing import save_changes, save_new_medicine, get_max_row
 from excel_reading import extracting_medicine_name, read_file
 from GUI_functions import print_executed
 
@@ -18,7 +18,7 @@ def updating_medicine_data_base():
         save_changes(medicine_index, expiration_date.get(), quantity.get(), minimum_inventory.get())
         print_executed()
     else:
-        new_medicine_row_num = max_row() + 1
+        new_medicine_row_num = get_max_row() + 1
         save_new_medicine(new_medicine_row_num, medicine_name.get(),
                           expiration_date.get(), quantity.get(), minimum_inventory.get())
         print_executed()
